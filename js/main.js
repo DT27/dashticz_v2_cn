@@ -286,7 +286,10 @@ function buildScreens(){
 						
 							if(typeof(settings['wu_api'])!=='undefined' && settings['wu_api']!=="" && settings['wu_api']!==0 && typeof(settings['wu_city'])!=='undefined' && settings['wu_city']!==""){
 								$('.col2').prepend('<div class="mh transbg big block_currentweather_big col-xs-12 containsweather"><div class="col-xs-1"><div class="weather" id="weather"></div></div><div class="col-xs-11"><span class="title weatherdegrees" id="weatherdegrees"></span> <span class="weatherloc" id="weatherloc"></span></div></div>');
-								if(typeof(loadWeatherFull)!=='function') $.ajax({url: 'js/weather.js', async: false,dataType: "script"});
+								if(typeof(loadWeatherFull)!=='function'){
+                                    $('<link href="vendor/weather/css/weather-icons.min.css?v='+cache+'" rel="stylesheet">').appendTo("head");
+                                    $.ajax({url: 'js/weather.js', async: false,dataType: "script"});
+								}
 								loadWeatherFull(settings['wu_city'],settings['wu_country'],$('#weatherfull'));
 								loadWeather(settings['wu_city'],settings['wu_country']);
 							}

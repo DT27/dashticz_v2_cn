@@ -76,7 +76,7 @@ function loadWeather() {
             }
         });
         setTimeout(function(){
-            loadWeatherCN();
+            loadWeather();
         }, (60000*30));
     });
 }
